@@ -22,6 +22,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [mints, setMints] = useState([]);
   const [chainId, setChainId] = useState("");
+
   const connectWallet = async () => {
     try {
       const { ethereum } = window;
@@ -99,7 +100,7 @@ const App = () => {
           signer
         );
 
-        console.log("Going to pop wallet now to pay gas...");
+        console.log("Going to pop wallet now to pay gas...", price);
 
         let tx = await contract.register(domain, {
           value: ethers.utils.parseEther(price),
@@ -208,8 +209,8 @@ const App = () => {
     // This is the new part, we check the user's network chain ID
     const _chainId = await ethereum.request({ method: "eth_chainId" });
     setChainId(_chainId);
-    setNetwork(networks[chainId].name);
-    setContractAddress(networks[chainId].address);
+    setNetwork(networks[_chainId].name);
+    setContractAddress(networks[_chainId].address);
 
     ethereum.on("chainChanged", handleChainChanged);
 
@@ -293,6 +294,7 @@ const App = () => {
       const { ethereum } = window;
       if (ethereum) {
         // You know all this
+
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
         const contract = new ethers.Contract(

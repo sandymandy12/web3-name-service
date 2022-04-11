@@ -52,12 +52,6 @@
     "eject": "react-scripts eject",
     "deploy": "npx hardhat run scripts/deploy.js --network"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",

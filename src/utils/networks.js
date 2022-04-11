@@ -7,7 +7,7 @@ const networks = {
   },
   "0x3": {
     name: "Ropsten",
-    address: "0x4505CC17F874C10fA05cF2f64A5A7CD7bafBA3Ce",
+    address: "0xebEa82757ED3739edBb077D322f01C7e19aC9cD1",
     rpc: "https://ropsten.etherscan.io/",
   },
   "0x2a": {
